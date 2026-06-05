@@ -1,0 +1,226 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "ABC Whyte";
+  src: url("https://thedamai.com/assets/fonts/ABCWhyte-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ABC Whyte";
+  src: url("https://thedamai.com/assets/fonts/ABCWhyte-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Kaftan Serif";
+  src: url("https://thedamai.com/assets/fonts/KaftanSerif-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "ABC Whyte", sans-serif;
+  background: #eae5df;
+  color: rgba(50, 32, 24, 0.84);
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.premium-loader-line {
+  animation: loaderSweep 0.95s cubic-bezier(0.76, 0, 0.24, 1) infinite;
+}
+
+@keyframes loaderSweep {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  48% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  52% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+}
+
+.nav-link-luxury::after {
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 0.1rem;
+  height: 1px;
+  content: "";
+  background: currentColor;
+  opacity: 0.82;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1), opacity 520ms ease;
+}
+
+.nav-link-luxury:hover::after,
+.nav-link-luxury.is-active::after {
+  transform: scaleX(1);
+}
+
+.premium-button {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.premium-button::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0));
+  transform: translateX(-115%) skewX(-14deg);
+  transition: transform 720ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.premium-button:hover {
+  transform: translateY(-3px);
+}
+
+.premium-button:hover::before {
+  transform: translateX(115%) skewX(-14deg);
+}
+
+.motion-card {
+  transform: translateZ(0);
+  transition:
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 520ms ease,
+    border-color 520ms ease;
+  will-change: transform;
+}
+
+.motion-card:hover {
+  transform: translateY(-6px) scale(1.006);
+  box-shadow: 0 26px 54px rgba(64, 42, 30, 0.14);
+  border-color: rgba(111, 73, 42, 0.18);
+}
+
+.motion-card img {
+  transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1), filter 700ms ease;
+}
+
+.motion-card:hover img {
+  transform: scale(1.035);
+}
+
+.brand-card {
+  filter: saturate(0.82);
+}
+
+.brand-card:hover {
+  filter: saturate(1);
+}
+
+.whatsapp-float::after {
+  position: absolute;
+  inset: -7px;
+  z-index: -1;
+  content: "";
+  border-radius: 999px;
+  border: 1px solid rgba(0, 84, 90, 0.34);
+  animation: subtlePulse 2.8s ease-out infinite;
+}
+
+@keyframes subtlePulse {
+  0% {
+    opacity: 0.58;
+    transform: scale(0.92);
+  }
+  80%,
+  100% {
+    opacity: 0;
+    transform: scale(1.18);
+  }
+}
+
+[data-motion-image] {
+  will-change: clip-path, opacity;
+}
+
+[data-hero-media],
+[data-motion-image] img {
+  will-change: transform;
+}
+
+.motion-word-wrap {
+  margin-bottom: -0.08em;
+  padding-bottom: 0.08em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .premium-loader {
+    display: none;
+  }
+}
+
+/* Dropdown ke options visible aur readable */
+select option {
+  background-color: white; /* dropdown khulte hi white bg */
+  color: black;            /* text black */
+}
+
+
+/* Desktop / default */
+.swiper-pagination {
+  bottom: -5px !important;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .swiper-pagination {
+    bottom: 10px !important; /* mobile ke liye aur neeche */
+  }
+}
