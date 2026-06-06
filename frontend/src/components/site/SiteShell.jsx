@@ -1,6 +1,7 @@
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useState } from "react";
 import gsap from "gsap";
 import { Link, useLocation } from "react-router-dom";
+import Preloader from "../Preloader";
 import { contactDetails, navigation } from "../../content/siteContent";
 import { useLuxuryAnimations, useLuxuryScroll } from "../../hooks/useLuxuryMotion";
 
@@ -15,17 +16,12 @@ function resetRouteScroll() {
 
 function BrandMark() {
   return (
-    <div className="flex flex-col items-center text-[#f8f6f4]">
-      <span className="mb-1 text-[0.62rem] uppercase tracking-[0.58em] text-white/72">
-        The
-      </span>
-      <span className="font-['Kaftan_Serif'] text-[2.55rem] leading-none tracking-[0.08em] xl:text-[2.75rem]">
-        HOME
-      </span>
-      <span className="-mt-1 text-[0.76rem] uppercase tracking-[0.5em] text-white/86">
-        SQUARE
-      </span>
-    </div>
+    <img
+      alt="Home Square"
+      className="site-brand-logo h-[4rem] w-auto object-contain sm:h-[4.4rem] xl:h-[4.7rem]"
+      draggable="false"
+      src="/logo/HS Logo.png"
+    />
   );
 }
 
@@ -144,32 +140,10 @@ function Footer() {
   );
 }
 
-function PremiumLoader({ hidden }) {
-  return (
-    <div
-      className={`premium-loader fixed inset-0 z-[120] flex items-center justify-center bg-[#211610] text-[#f8f6f4] transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] ${
-        hidden ? "pointer-events-none translate-y-[-100%] opacity-0" : "opacity-100"
-      }`}
-      aria-hidden={hidden}
-    >
-      <div className="flex flex-col items-center">
-        <span className="text-[0.66rem] uppercase tracking-[0.54em] text-white/62">The</span>
-        <span className="mt-2 font-['Kaftan_Serif'] text-[clamp(3rem,8vw,6rem)] leading-none tracking-[0.08em]">
-          HOME
-        </span>
-        <span className="-mt-1 text-[0.82rem] uppercase tracking-[0.46em] text-white/86">Square</span>
-        <span className="mt-8 h-px w-28 overflow-hidden bg-white/18">
-          <span className="premium-loader-line block h-full w-full origin-left bg-[#c7a16d]" />
-        </span>
-      </div>
-    </div>
-  );
-}
-
 export function SiteShell({ children }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [loaded, setLoaded] = useState(introLoaderHasPlayed);
+  const [preloaderComplete, setPreloaderComplete] = useState(introLoaderHasPlayed);
   const location = useLocation();
   const primaryDesktopLinks = navigation.filter((item) =>
     ["/", "/about", "/leasing", "/brands", "/contact-us"].includes(item.href),
@@ -179,9 +153,13 @@ export function SiteShell({ children }) {
     navigation.slice(0, drawerSplitIndex),
     navigation.slice(drawerSplitIndex),
   ];
+  const handlePreloaderComplete = useCallback(() => {
+    introLoaderHasPlayed = true;
+    setPreloaderComplete(true);
+  }, []);
 
   useLuxuryScroll();
-  useLuxuryAnimations(location.pathname, loaded);
+  useLuxuryAnimations(location.pathname, preloaderComplete);
 
   useLayoutEffect(() => {
     resetRouteScroll();
@@ -196,18 +174,9 @@ export function SiteShell({ children }) {
 
   useEffect(() => {
     if (introLoaderHasPlayed) {
-      setLoaded(true);
+      setPreloaderComplete(true);
       return undefined;
     }
-
-    const timer = window.setTimeout(() => {
-      introLoaderHasPlayed = true;
-      setLoaded(true);
-    }, 620);
-    return () => {
-      introLoaderHasPlayed = true;
-      window.clearTimeout(timer);
-    };
   }, []);
 
   useEffect(() => {
@@ -236,16 +205,16 @@ export function SiteShell({ children }) {
 
   return (
     <div className="bg-[#eae5df] text-[rgba(50,32,24,0.84)]">
-      <PremiumLoader hidden={loaded} />
+      {!preloaderComplete ? <Preloader onComplete={handlePreloaderComplete} /> : null}
       <header
         data-motion-nav
-        className={`fixed inset-x-0 top-0 z-50 border-b px-4 transition-all duration-500 md:px-8 xl:px-12 ${
+        className={`site-navbar fixed inset-x-0 top-0 z-50 px-4 transition-all duration-500 md:px-8 xl:px-12 ${
           scrolled
-            ? "border-white/15 bg-[rgba(18,12,9,0.42)] shadow-[0_18px_46px_rgba(0,0,0,0.14)] backdrop-blur-[16px]"
-            : "border-white/18 bg-transparent"
+            ? "bg-[rgba(18,12,9,0.42)] shadow-[0_18px_46px_rgba(0,0,0,0.14)] backdrop-blur-[16px]"
+            : "bg-transparent"
         }`}
       >
-        <div className="grid h-[92px] w-full grid-cols-[1fr_auto_1fr] items-center gap-4">
+        <div className="relative z-10 grid h-[86px] w-full grid-cols-[1fr_auto_1fr] items-center gap-4 lg:h-[88px]">
           <div className="flex min-w-0 items-center gap-4 xl:gap-6">
             <button
               className="group relative inline-flex h-10 w-10 items-center justify-center bg-transparent"
