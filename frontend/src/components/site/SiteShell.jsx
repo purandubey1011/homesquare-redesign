@@ -210,7 +210,7 @@ export function SiteShell({ children }) {
         data-motion-nav
         className={`site-navbar fixed inset-x-0 top-0 z-50 px-4 transition-all duration-500 md:px-8 xl:px-12 ${
           scrolled
-            ? "bg-[rgba(18,12,9,0.42)] shadow-[0_18px_46px_rgba(0,0,0,0.14)] backdrop-blur-[16px]"
+            ? "is-scrolled bg-white shadow-[0_12px_36px_rgba(0,0,0,0.1)]"
             : "bg-transparent"
         }`}
       >
@@ -266,7 +266,7 @@ export function SiteShell({ children }) {
 
           <div className="flex items-center justify-end">
             <Link
-              className="premium-button hidden min-h-[3.2rem] items-center justify-center rounded-full bg-white/20 px-6 text-[0.74rem] font-normal uppercase tracking-[0.14em] text-[#f8f6f4] backdrop-blur-[14px] transition-all duration-500 hover:-translate-y-0.5 hover:bg-white/28 lg:inline-flex xl:min-h-[3.35rem] xl:px-8 xl:text-[0.82rem]"
+              className="brand-nav-button premium-button hidden min-h-[3.2rem] items-center justify-center rounded-full px-6 text-[0.74rem] font-medium uppercase tracking-[0.14em] text-[#17202a] transition-all duration-500 hover:-translate-y-0.5 lg:inline-flex xl:min-h-[3.35rem] xl:px-8 xl:text-[0.82rem]"
               to="/contact-us"
             >
               Book site visit
@@ -368,7 +368,7 @@ export function SiteShell({ children }) {
       <Footer />
       <a
         aria-label="WhatsApp Home Square"
-        className="whatsapp-float fixed bottom-5 right-5 z-40 inline-flex min-h-14 items-center justify-center rounded-full bg-[#00545a] px-5 text-[0.72rem] font-medium uppercase tracking-[0.14em] text-[#f8f6f4] shadow-[0_18px_34px_rgba(0,84,90,0.28)] transition-all duration-500 hover:-translate-y-1 hover:bg-[#0a666b] sm:bottom-7 sm:right-7"
+        className="whatsapp-float fixed bottom-5 right-5 z-40 inline-flex min-h-14 items-center justify-center rounded-full bg-[#AAB45E] px-5 text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-[#17202a] shadow-[0_18px_34px_rgba(170,180,94,0.3)] transition-all duration-500 hover:-translate-y-1 hover:bg-[#F5A653] sm:bottom-7 sm:right-7"
         href={contactDetails.whatsapp}
         rel="noreferrer"
         target="_blank"

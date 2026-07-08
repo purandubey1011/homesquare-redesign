@@ -32,7 +32,7 @@ export default function ReservationBanner({
 
           <div className="flex flex-col items-start gap-4 lg:items-end">
             <a
-              className="inline-flex min-h-[4.2rem] items-center justify-center rounded-full bg-[#00545a] px-8 text-[0.95rem] font-medium text-[#f8f6f4] transition-transform duration-300 hover:-translate-y-0.5"
+              className="brand-button-primary premium-button inline-flex min-h-[4.2rem] items-center justify-center rounded-full px-8 text-[0.95rem] font-medium text-[#17202a] transition-transform duration-300 hover:-translate-y-0.5"
               href={primaryHref}
             >
               {primaryLabel}

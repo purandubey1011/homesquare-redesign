@@ -2,11 +2,56 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { contactDetails } from "../../content/siteContent";
 
+const localCardImages = {
+  "Prime Salugara Location": "/card-images/city.jpg",
+  "Home & Interior Ecosystem": "/card-images/interior.jpg",
+  "Business-Ready Spaces": "/card-images/office.jpg",
+  "Customer Convenience": "/card-images/storefront.jpg",
+  "Connected to Siliguri and nearby towns": "/card-images/city-connected.jpg",
+  "Accessible from the hills corridor": "/card-images/hills.jpg",
+  "Easy to locate and visit": "/card-images/road.jpg",
+  "Showroom Spaces": "/card-images/showroom.jpg",
+  "Retail Stores": "/card-images/retail.jpg",
+  "Office & Studio Spaces": "/card-images/office-studio.jpg",
+  "Office Spaces": "/card-images/workspace.jpg",
+  "Experience Centres": "/card-images/atrium.jpg",
+  "Established developer backing": "/card-images/building.jpg",
+  "Credibility in planning and delivery": "/card-images/team.jpg",
+  "Recognition and market confidence": "/card-images/award.jpg",
+  "For customers": "/card-images/customer.jpg",
+  "For brands": "/card-images/brands-team.jpg",
+  "For the city": "/card-images/city-future.jpg",
+  "To reduce fragmentation": "/card-images/fragmentation.jpg",
+  "To improve quality of footfall": "/card-images/footfall.jpg",
+  "To create stronger brand synergy": "/card-images/synergy.jpg",
+  "Project delivery confidence": "/card-images/delivery.jpg",
+  "Recognition-backed perception": "/card-images/recognition.jpg",
+  "Future growth potential": "/card-images/growth.jpg",
+  "For Furniture Brands": "/card-images/furniture-brand.jpg",
+  "For Electronics Brands": "/card-images/electronics.jpg",
+  "For Modular Kitchen Brands": "/card-images/kitchen.jpg",
+  "For Decor & Lifestyle Brands": "/card-images/decor-lifestyle.jpg",
+  Parking: "/card-images/parking.jpg",
+  Security: "/card-images/security.jpg",
+  Lifts: "/card-images/lobby.jpg",
+  "Wide passages": "/card-images/wide-passage.jpg",
+  "Food court access": "/card-images/food.jpg",
+  "Smooth visitor circulation": "/card-images/circulation.jpg",
+  "Comfortable common areas": "/card-images/common-area.jpg",
+  "Practical daily operations support": "/card-images/operations.jpg",
+};
+
+const fallbackCardImages = ["city", "interior", "office", "storefront", "showroom", "retail", "workspace", "atrium", "team", "building", "growth"];
+
+function getCardImage(title, index = 0) {
+  return localCardImages[title] ?? `/card-images/${fallbackCardImages[index % fallbackCardImages.length]}.jpg`;
+}
+
 function Ornament({ light = false }) {
   return (
     <svg
       aria-hidden="true"
-      className="h-8 w-8 sm:h-10 sm:w-10"
+      className="brand-ornament h-8 w-8 sm:h-10 sm:w-10"
       fill="none"
       viewBox="0 0 64 64"
       xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +111,7 @@ function SectionHeading({ eyebrow, title, body, centered = false, light = false 
     <div className={`${centered ? "mx-auto max-w-[54rem] text-center" : "max-w-[46rem]"} w-full`}>
       {eyebrow ? (
         <span
-          className={`mb-6 inline-flex text-[0.76rem] uppercase tracking-[0.18em] ${
+          className={`brand-eyebrow mb-6 inline-flex text-[0.76rem] uppercase tracking-[0.18em] ${
             light ? "text-[rgba(86,72,60,0.56)]" : "text-[rgba(50,32,24,0.38)]"
           }`}
         >
@@ -99,8 +144,8 @@ function Action({ action, className = "", subtle = false }) {
   if (!action) return null;
 
   const baseClass = subtle
-    ? "border border-[rgba(50,32,24,0.12)] bg-[rgba(255,255,255,0.5)] text-[#322018] backdrop-blur-[14px]"
-    : "bg-[#9f4b03] text-[#f8f6f4]";
+    ? "brand-button-subtle border bg-white/60 text-[#322018] backdrop-blur-[14px]"
+    : "brand-button-primary text-[#17202a]";
 
   const classes = `premium-button inline-flex min-h-[4.05rem] items-center justify-center rounded-full px-7 text-[0.84rem] font-medium uppercase tracking-[0.14em] transition-all duration-300 hover:-translate-y-0.5 ${baseClass} ${className}`;
 
@@ -175,7 +220,7 @@ export function PageHero({ hero }) {
         <div className="mt-6 flex flex-col items-center" data-hero-fade>
           <span className="mb-9 block h-[4.2rem] w-px bg-[rgba(248,246,244,0.55)]" />
           <div className="flex flex-col gap-4 sm:flex-row">
-            <Action action={hero.primaryCta} className="bg-[#00545a]" />
+            <Action action={hero.primaryCta} />
             {secondaryIsInternal ? (
               <Link
                 className="premium-button inline-flex min-h-[4.25rem] items-center justify-center rounded-full border border-white/28 bg-white/8 px-8 text-[0.82rem] font-semibold uppercase tracking-[0.14em] text-[#f8f6f4] backdrop-blur-[14px] transition-all duration-500 hover:-translate-y-0.5 hover:bg-white/14"
@@ -213,18 +258,22 @@ function HighlightsSection({ section }) {
         <div className="grid gap-0 border-y border-[rgba(50,32,24,0.12)] md:grid-cols-2 xl:grid-cols-4" data-motion-stagger>
           {section.items.map((item, index) => (
             <article
-              className="motion-card border-b border-[rgba(50,32,24,0.12)] px-6 py-9 md:border-r md:[&:nth-child(2n)]:border-r-0 xl:border-b-0 xl:[&:nth-child(2n)]:border-r xl:[&:last-child]:border-r-0"
+              className="image-purpose-card group relative min-h-[22rem] overflow-hidden border-b border-[rgba(50,32,24,0.12)] px-6 py-9 text-white md:border-r md:[&:nth-child(2n)]:border-r-0 xl:border-b-0 xl:[&:nth-child(2n)]:border-r xl:[&:last-child]:border-r-0"
               key={item.title}
             >
-              <span className="text-[0.8rem] uppercase tracking-[0.16em] text-[rgba(50,32,24,0.36)]" data-count-prefix="0" data-count-value={index + 1}>
+              <img alt="" className="purpose-card-image absolute inset-0 h-full w-full object-cover" loading="lazy" src={item.image ?? getCardImage(item.title, index)} />
+              <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(16,12,10,0.78),rgba(16,12,10,0.08))]" />
+              <div className="relative z-10 flex h-full flex-col justify-end">
+              <span className="text-[0.8rem] uppercase tracking-[0.16em] text-white/65" data-count-prefix="0" data-count-value={index + 1}>
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <h3 className="mt-5 font-['Kaftan_Serif'] text-[2.15rem] leading-[0.98] tracking-[-0.03em] text-[#322018]">
+              <h3 className="mt-5 font-['Kaftan_Serif'] text-[2.15rem] leading-[0.98] tracking-[-0.03em] text-white">
                 {item.title}
               </h3>
-              <p className="mt-5 max-w-[18rem] text-[0.98rem] leading-[1.74] text-[rgba(50,32,24,0.72)]">
+              <p className="mt-5 max-w-[18rem] text-[0.98rem] leading-[1.74] text-white/78">
                 {item.body}
               </p>
+              </div>
             </article>
           ))}
         </div>
@@ -294,28 +343,40 @@ function CardsSection({ section }) {
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3 xl:gap-12" data-motion-stagger>
           {section.items.map((item, index) => (
             <article
-              className={`motion-card group relative overflow-hidden ${
+              className={`${item.image || getCardImage(item.title, index) ? "image-purpose-card" : "brand-card motion-card"} group relative overflow-hidden ${
                 index % 2 === 0 ? "bg-[#f2ebe4] text-[#322018]" : "bg-[#f7f1ea] text-[#322018]"
               } min-h-[26rem] sm:min-h-[30rem]`}
               key={item.title}
             >
-              <div
-                className={`absolute inset-0 ${
-                  index % 2 === 0
-                    ? "bg-[linear-gradient(160deg,rgba(255,255,255,0.58),rgba(255,255,255,0.18))]"
-                    : "bg-[linear-gradient(160deg,rgba(255,255,255,0.56),rgba(255,255,255,0.14))]"
-                }`}
-              />
+              {item.image || getCardImage(item.title, index) ? (
+                <>
+                  <img
+                    alt={item.title}
+                    className="purpose-card-image absolute inset-0 h-full w-full object-cover"
+                    loading="lazy"
+                    src={item.image ?? getCardImage(item.title, index)}
+                  />
+                  <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(16,12,10,0.78)_3%,rgba(16,12,10,0.24)_58%,rgba(16,12,10,0.05)_100%)]" />
+                </>
+              ) : (
+                <div
+                  className={`absolute inset-0 ${
+                    index % 2 === 0
+                      ? "bg-[linear-gradient(160deg,rgba(255,255,255,0.58),rgba(255,255,255,0.18))]"
+                      : "bg-[linear-gradient(160deg,rgba(255,255,255,0.56),rgba(255,255,255,0.14))]"
+                  }`}
+                />
+              )}
               <div className="relative z-10 flex h-full flex-col justify-between px-6 py-8 sm:px-8 sm:py-10">
-                <span className="text-[0.78rem] uppercase tracking-[0.16em] text-[rgba(50,32,24,0.42)]">
+                <span className={`text-[0.78rem] uppercase tracking-[0.16em] ${item.image || getCardImage(item.title) ? "text-white/72" : "text-[rgba(50,32,24,0.42)]"}`}>
                   {String(index + 1).padStart(2, "0")}
                 </span>
 
                 <div className="mt-12">
-                  <h3 className="font-['Kaftan_Serif'] text-[clamp(2.35rem,3.7vw,3.5rem)] leading-[0.96] tracking-[-0.03em]">
+                  <h3 className={`font-['Kaftan_Serif'] text-[clamp(2.35rem,3.7vw,3.5rem)] leading-[0.96] tracking-[-0.03em] ${item.image || getCardImage(item.title) ? "text-white" : ""}`}>
                     {item.title}
                   </h3>
-                  <p className="mt-5 max-w-[27rem] text-[1rem] leading-[1.72] text-[rgba(50,32,24,0.72)]">
+                  <p className={`mt-5 max-w-[27rem] text-[1rem] leading-[1.72] ${item.image || getCardImage(item.title) ? "text-white/80" : "text-[rgba(50,32,24,0.72)]"}`}>
                     {item.body}
                   </p>
                 </div>
@@ -339,9 +400,9 @@ function CategoriesSection({ section }) {
         </div>
 
         <div className="grid gap-px bg-[rgba(50,32,24,0.08)] md:grid-cols-2 xl:grid-cols-3" data-motion-stagger>
-          {section.items.map((item) => (
+          {section.items.map((item, index) => (
             <div
-              className="motion-card bg-[#fbf7f1] px-6 py-8 font-['Kaftan_Serif'] text-[2rem] leading-[1] tracking-[-0.025em] text-[#322018]"
+              className="brand-tile motion-card bg-[#fbf7f1] px-6 py-8 font-['Kaftan_Serif'] text-[2rem] leading-[1] tracking-[-0.025em] text-[#322018]"
               key={item}
             >
               {item}
@@ -370,12 +431,14 @@ function AmenitiesSection({ section }) {
           <SectionHeading centered title={section.heading} />
         </div>
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4" data-motion-stagger>
-          {section.items.map((item) => (
+          {section.items.map((item, index) => (
             <div
-              className="motion-card border border-[rgba(50,32,24,0.12)] bg-[#f5f0ea] px-6 py-10 font-['Kaftan_Serif'] text-[2rem] leading-[1] tracking-[-0.03em] text-[#322018]"
+              className="image-purpose-card group relative min-h-[12rem] overflow-hidden border px-6 py-8 font-['Kaftan_Serif'] text-[2rem] leading-[1] tracking-[-0.03em] text-white"
               key={item}
             >
-              {item}
+              <img alt="" className="purpose-card-image absolute inset-0 h-full w-full object-cover" loading="lazy" src={getCardImage(item, index)} />
+              <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(16,12,10,0.72),rgba(16,12,10,0.08))]" />
+              <span className="relative z-10 flex h-full items-end">{item}</span>
             </div>
           ))}
         </div>
@@ -470,7 +533,7 @@ function LeadFormSection({ section }) {
             placeholder="Message"
           />
           <button
-            className="premium-button inline-flex min-h-[4.8rem] items-center justify-center rounded-full bg-[#00545a] px-8 text-[0.88rem] font-medium uppercase tracking-[0.2em] text-[#f8f6f4] shadow-[0_22px_38px_rgba(0,84,90,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#0a666b] md:col-span-2"
+            className="brand-button-primary premium-button inline-flex min-h-[4.8rem] items-center justify-center rounded-full px-8 text-[0.88rem] font-medium uppercase tracking-[0.2em] text-[#17202a] transition-all duration-300 hover:-translate-y-0.5 md:col-span-2"
             type="submit"
           >
             {section.submitLabel}
@@ -567,7 +630,7 @@ function CTABanner({ section }) {
           {section.body}
         </p>
         <div className="mt-10 flex flex-col gap-4 sm:flex-row" data-motion-stagger>
-          <Action action={section.primaryCta} className="bg-[#00545a]" />
+          <Action action={section.primaryCta} />
           <Action action={section.secondaryCta} subtle />
         </div>
       </div>
@@ -612,25 +675,32 @@ function BrandGridSection({ section }) {
           <SectionHeading centered title={section.heading} />
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3 xl:gap-12" data-motion-stagger>
-          {section.items.map((item, index) => (
+          {section.items.map((item) => (
             <article
-              className={`motion-card brand-card min-h-[26rem] border border-[rgba(50,32,24,0.08)] ${
-                index % 2 === 0 ? "bg-[#f2ebe4] text-[#322018]" : "bg-[#f8f3ed] text-[#322018]"
-              } p-7 sm:p-8`}
+              className="brand-image-card group relative min-h-[30rem] overflow-hidden border border-white/10 bg-[#241b17] text-white sm:min-h-[34rem]"
               key={item.title}
             >
-              <span className="text-[0.78rem] uppercase tracking-[0.16em] text-[rgba(50,32,24,0.42)]">
-                {item.meta}
-              </span>
-              <h3 className="mt-4 font-['Kaftan_Serif'] text-[2.35rem] leading-[0.98] tracking-[-0.03em]">
-                {item.title}
-              </h3>
-              <p className="mt-4 text-[0.98rem] leading-[1.74] text-[rgba(50,32,24,0.72)]">
-                {item.body}
-              </p>
-              <p className="mt-6 text-[0.92rem] leading-[1.68] text-[#8d4f1d]">
-                {item.caption}
-              </p>
+              <img
+                alt={item.title}
+                className="brand-card-image absolute inset-0 h-full w-full object-cover"
+                loading="lazy"
+                src={item.image}
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(15,12,10,0.92)_4%,rgba(15,12,10,0.52)_48%,rgba(15,12,10,0.16)_100%)]" />
+              <div className="relative z-10 flex min-h-[30rem] flex-col justify-end p-7 sm:min-h-[34rem] sm:p-8">
+                <span className="text-[0.75rem] uppercase tracking-[0.18em] text-white/72">
+                  {item.meta}
+                </span>
+                <h3 className="mt-4 font-['Kaftan_Serif'] text-[2.5rem] leading-[0.98] tracking-[-0.03em] text-white">
+                  {item.title}
+                </h3>
+                <p className="mt-4 max-w-[31rem] text-[0.98rem] leading-[1.7] text-white/82">
+                  {item.body}
+                </p>
+                <p className="mt-5 max-w-[31rem] border-l-2 border-[#F5A653] pl-4 text-[0.9rem] leading-[1.62] text-white/74">
+                  {item.caption}
+                </p>
+              </div>
             </article>
           ))}
         </div>

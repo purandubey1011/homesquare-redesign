@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+:root {
+  --brand-yellow: #F5A653;
+  --brand-green: #AAB45E;
+  --brand-pink: #CF7AAF;
+  --brand-blue: #63ACD5;
+  --brand-ink: #17202a;
+}
+
+::selection {
+  background: var(--brand-pink);
+  color: white;
+}
+
 @font-face {
   font-family: "ABC Whyte";
   src: url("https://thedamai.com/assets/fonts/ABCWhyte-Light.woff2") format("woff2");
@@ -67,6 +80,35 @@ html.lenis body {
 .site-brand-logo {
   filter: brightness(0) invert(1) drop-shadow(0 8px 18px rgba(0, 0, 0, 0.28));
   opacity: 0.94;
+  transition: filter 500ms ease, opacity 500ms ease, transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.site-navbar.is-scrolled .site-brand-logo {
+  filter: none;
+  opacity: 1;
+  transform: scale(1.12);
+}
+
+.site-navbar.is-scrolled .nav-link-luxury {
+  color: #171717;
+}
+
+.site-navbar.is-scrolled button span {
+  background-color: #171717;
+}
+
+.site-navbar.is-scrolled button + span {
+  background-color: rgba(23, 23, 23, 0.25);
+}
+
+.site-navbar.is-scrolled .premium-button {
+  background: rgba(23, 23, 23, 0.08);
+  color: #171717;
+  backdrop-filter: none;
+}
+
+.site-navbar.is-scrolled .premium-button:hover {
+  background: rgba(23, 23, 23, 0.14);
 }
 
 .site-navbar::before {
@@ -78,6 +120,105 @@ html.lenis body {
   content: "";
   background: rgba(255, 255, 255, 0.14);
   pointer-events: none;
+}
+
+.site-navbar.is-scrolled::before {
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand-yellow) 0 25%, var(--brand-green) 25% 50%, var(--brand-pink) 50% 75%, var(--brand-blue) 75%);
+}
+
+.brand-nav-button,
+.brand-button-primary {
+  background: var(--brand-yellow);
+  box-shadow: 0 12px 28px rgba(245, 166, 83, 0.24);
+}
+
+.site-navbar.is-scrolled .brand-nav-button {
+  background: var(--brand-yellow);
+  color: var(--brand-ink);
+}
+
+.site-navbar.is-scrolled .brand-nav-button:hover {
+  background: var(--brand-blue);
+}
+
+.brand-nav-button:hover,
+.brand-button-primary:hover {
+  background: var(--brand-blue);
+  box-shadow: 0 16px 32px rgba(99, 172, 213, 0.28);
+}
+
+.brand-button-subtle {
+  border-color: var(--brand-green);
+  box-shadow: inset 0 0 0 1px rgba(170, 180, 94, 0.18);
+}
+
+.brand-button-subtle:hover {
+  background: rgba(170, 180, 94, 0.18);
+}
+
+.brand-eyebrow {
+  color: #8b4f77 !important;
+}
+
+.brand-ornament path {
+  fill: var(--brand-pink);
+}
+
+.brand-card,
+.brand-tile {
+  border-top: 4px solid var(--brand-yellow) !important;
+}
+
+.brand-card:nth-child(4n + 2),
+.brand-tile:nth-child(4n + 2) {
+  border-top-color: var(--brand-green) !important;
+}
+
+.brand-card:nth-child(4n + 3),
+.brand-tile:nth-child(4n + 3) {
+  border-top-color: var(--brand-pink) !important;
+}
+
+.brand-card:nth-child(4n),
+.brand-tile:nth-child(4n) {
+  border-top-color: var(--brand-blue) !important;
+}
+
+.brand-image-card {
+  transition: box-shadow 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.brand-image-card:hover {
+  box-shadow: 0 26px 54px rgba(30, 22, 18, 0.2);
+}
+
+.brand-card-image {
+  transform: scale(1.001);
+  transition: transform 850ms cubic-bezier(0.22, 1, 0.36, 1), filter 600ms ease;
+  will-change: transform;
+}
+
+.brand-image-card:hover .brand-card-image {
+  transform: scale(1.09);
+}
+
+.image-purpose-card {
+  transition: box-shadow 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.image-purpose-card:hover {
+  box-shadow: 0 26px 54px rgba(30, 22, 18, 0.2);
+}
+
+.purpose-card-image {
+  transform: scale(1.001);
+  transition: transform 850ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.image-purpose-card:hover .purpose-card-image {
+  transform: scale(1.09);
 }
 
 .nav-link-luxury::after {
@@ -162,7 +303,7 @@ html.lenis body {
   z-index: -1;
   content: "";
   border-radius: 999px;
-  border: 1px solid rgba(0, 84, 90, 0.34);
+  border: 1px solid rgba(170, 180, 94, 0.52);
   animation: subtlePulse 2.8s ease-out infinite;
 }
 
