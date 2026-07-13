@@ -767,7 +767,7 @@ export const pages = [
         items: [
           {
             title: "JioMart Digital",
-            image: "/brand/jiomartdigital.png",
+            image: "/brand/jiomartreal.jpg",
             meta: "Electronics & Appliances",
             body: "Electronics and appliances for modern homes, offices and lifestyle needs.",
             caption: "Best for TVs, refrigerators, washing machines, ACs, gadgets and home electronics.",

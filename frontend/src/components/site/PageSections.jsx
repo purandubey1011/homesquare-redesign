@@ -220,7 +220,7 @@ export function PageHero({ hero }) {
         <div className="mt-6 flex flex-col items-center" data-hero-fade>
           <span className="mb-9 block h-[4.2rem] w-px bg-[rgba(248,246,244,0.55)]" />
           <div className="flex flex-col gap-4 sm:flex-row">
-            <Action action={hero.primaryCta} />
+            <Action action={hero.primaryCta} className="brand-gradient-cta" />
             {secondaryIsInternal ? (
               <Link
                 className="premium-button inline-flex min-h-[4.25rem] items-center justify-center rounded-full border border-white/28 bg-white/8 px-8 text-[0.82rem] font-semibold uppercase tracking-[0.14em] text-[#f8f6f4] backdrop-blur-[14px] transition-all duration-500 hover:-translate-y-0.5 hover:bg-white/14"
