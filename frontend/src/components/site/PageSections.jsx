@@ -186,12 +186,12 @@ export function PageHero({ hero }) {
           src={hero.video}
         />
       ) : (
-        <img
-          alt={hero.title}
-          className="absolute inset-0 h-full w-full object-cover will-change-transform"
-          data-hero-media
-          src={hero.image}
-        />
+<img
+  alt={hero.title}
+  className="absolute inset-0 h-full w-full object-cover object-[50%_20%] will-change-transform"
+  data-hero-media
+  src={hero.image}
+/>
       )}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_62%,rgba(0,0,0,0.05),rgba(0,0,0,0.5)_82%),linear-gradient(to_bottom,rgba(0,0,0,0.14),rgba(0,0,0,0.26))]" />
 
@@ -247,7 +247,7 @@ export function PageHero({ hero }) {
   );
 }
 
-function HighlightsSection({ section }) {
+export function HighlightsSection({ section }) {
   return (
     <section className="bg-[#eae5df] px-4 py-18 md:px-8 lg:px-10" data-motion-section>
       <div className="mx-auto max-w-[1520px]">
@@ -282,17 +282,17 @@ function HighlightsSection({ section }) {
   );
 }
 
-function SplitSection({ section }) {
+export function SplitSection({ section }) {
   return (
     <section className="bg-[#eae5df] px-4 py-12 md:px-8 md:py-16 lg:px-10 lg:py-20" data-motion-section id={section.id}>
       <div className="mx-auto grid max-w-[1450px] grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
         <div
           className={`${section.reverse ? "lg:order-2 lg:pl-[7%] xl:pl-[9%]" : "lg:pr-[4%] xl:pr-[6%]"}`}
         >
-          <div className="h-[30rem] overflow-hidden bg-[#d8d0c8] sm:h-[38rem] lg:h-[50rem]" data-motion-image>
+          <div className="relative h-[30rem] overflow-hidden bg-[#d8d0c8] sm:h-[38rem] lg:h-[50rem]" data-motion-image>
             <img
               alt={section.title}
-              className="h-full w-full object-cover"
+              className="absolute inset-x-0 -top-[5%] h-[110%] w-full object-cover"
               loading="lazy"
               src={section.image}
             />
@@ -324,7 +324,7 @@ function SplitSection({ section }) {
   );
 }
 
-function CardsSection({ section }) {
+export function CardsSection({ section }) {
   return (
     <section className="bg-[#eae5df] px-4 py-18 md:px-8 lg:px-10" data-motion-section>
       <div className="mx-auto max-w-[1860px]">
@@ -390,7 +390,7 @@ function CardsSection({ section }) {
   );
 }
 
-function CategoriesSection({ section }) {
+export function CategoriesSection({ section }) {
   return (
     <section className="bg-[#f2ebe3] px-4 py-18 text-[#322018] md:px-8 lg:px-10" data-motion-section id={section.id}>
       <div className="mx-auto max-w-[1620px]">
@@ -422,7 +422,7 @@ function CategoriesSection({ section }) {
   );
 }
 
-function AmenitiesSection({ section }) {
+export function AmenitiesSection({ section }) {
   return (
     <section className="bg-[#eae5df] px-4 py-18 md:px-8 lg:px-10" data-motion-section>
       <div className="mx-auto max-w-[1520px]">
@@ -448,7 +448,7 @@ function AmenitiesSection({ section }) {
   );
 }
 
-function GalleryPreviewSection({ section }) {
+export function GalleryPreviewSection({ section }) {
   return (
     <section className="bg-[#eae5df] px-4 py-18 md:px-8 lg:px-10" data-motion-section>
       <div className="mx-auto max-w-[1860px]">
@@ -484,7 +484,7 @@ function GalleryPreviewSection({ section }) {
   );
 }
 
-function LeadFormSection({ section }) {
+export function LeadFormSection({ section }) {
   const [submitted, setSubmitted] = useState(false);
   const [interest, setInterest] = useState(section.options?.[0] ?? "");
 
@@ -549,7 +549,7 @@ function LeadFormSection({ section }) {
   );
 }
 
-function ContactStripSection({ section }) {
+export function ContactStripSection({ section }) {
   return (
     <section className="bg-[#eae5df] px-4 py-18 md:px-8 lg:px-10" data-motion-section>
       <div className="mx-auto max-w-[1260px] border-t border-[rgba(50,32,24,0.1)] pt-16 text-center">
@@ -571,7 +571,7 @@ function ContactStripSection({ section }) {
   );
 }
 
-function QuoteBandSection({ section }) {
+export function QuoteBandSection({ section }) {
   return (
     <section className="bg-[#f1ebe3] px-4 py-[5rem] text-[#322018] md:px-8 lg:px-12" data-motion-section>
       <div className="mx-auto flex max-w-[1060px] flex-col items-center text-center">
@@ -584,7 +584,7 @@ function QuoteBandSection({ section }) {
   );
 }
 
-function ComparisonSection({ section }) {
+export function ComparisonSection({ section }) {
   return (
     <section className="bg-[#ede8e2] px-4 py-18 md:px-8 lg:px-10" data-motion-section>
       <div className="mx-auto max-w-[1280px]">
@@ -617,7 +617,7 @@ function ComparisonSection({ section }) {
   );
 }
 
-function CTABanner({ section }) {
+export function CTABanner({ section }) {
   return (
     <section className="relative overflow-hidden bg-[#f2ebe3] px-4 py-[5rem] text-[#322018] md:px-8 lg:px-10" data-motion-section>
       <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.55),rgba(255,255,255,0)_38%)]" />
@@ -638,7 +638,7 @@ function CTABanner({ section }) {
   );
 }
 
-function ReasonGridSection({ section }) {
+export function ReasonGridSection({ section }) {
   return (
     <section className="bg-[#eae5df] px-4 py-18 md:px-8 lg:px-10" data-motion-section>
       <div className="mx-auto max-w-[1520px]">
@@ -666,7 +666,7 @@ function ReasonGridSection({ section }) {
   );
 }
 
-function BrandGridSection({ section }) {
+export function BrandGridSection({ section }) {
   return (
     <section className="bg-[#eae5df] px-4 py-18 md:px-8 lg:px-10" data-motion-section id={section.id}>
       <div className="mx-auto max-w-[1860px]">
@@ -709,7 +709,7 @@ function BrandGridSection({ section }) {
   );
 }
 
-function TimelineSection({ section }) {
+export function TimelineSection({ section }) {
   return (
     <section className="bg-[#ede8e2] px-4 py-18 md:px-8 lg:px-10" data-motion-section>
       <div className="mx-auto max-w-[1180px]">
@@ -732,7 +732,7 @@ function TimelineSection({ section }) {
   );
 }
 
-function FeaturedBlogSection({ section }) {
+export function FeaturedBlogSection({ section }) {
   const { item } = section;
   return (
     <section className="bg-[#eae5df] px-4 py-18 md:px-8 lg:px-10" data-motion-section>
@@ -772,7 +772,7 @@ function FeaturedBlogSection({ section }) {
   );
 }
 
-function BlogListSection({ section }) {
+export function BlogListSection({ section }) {
   return (
     <section className="bg-[#eae5df] px-4 py-18 md:px-8 lg:px-10" data-motion-section id={section.id}>
       <div className="mx-auto max-w-[1860px]">
@@ -808,7 +808,7 @@ function BlogListSection({ section }) {
   );
 }
 
-function ContactCardsSection({ section }) {
+export function ContactCardsSection({ section }) {
   return (
     <section className="bg-[#eae5df] px-4 py-18 md:px-8 lg:px-10" data-motion-section>
       <div className="mx-auto max-w-[1520px]">
@@ -842,7 +842,7 @@ function ContactCardsSection({ section }) {
   );
 }
 
-function FAQSection({ section }) {
+export function FAQSection({ section }) {
   return (
     <section className="bg-[#ede8e2] px-4 py-18 md:px-8 lg:px-10" data-motion-section>
       <div className="mx-auto max-w-[1180px]">
