@@ -7,17 +7,17 @@ const section = {
     {
       title: "Customers benefit",
       body: "They can discover, compare and complete more of their decision journey in one visit.",
-      image: "/card-images/benefit-customers.jpg"
+      image: "/businesses/cafe/img-8880.webp"
     },
     {
       title: "Brands benefit",
       body: "They gain stronger adjacency, better context and more meaningful customer flow.",
-      image: "/card-images/benefit-brands.jpg"
+      image: "/businesses/property/brands-at-home-square.webp"
     },
     {
       title: "The destination benefits",
       body: "A more relevant mix strengthens repeat visits, trust and premium perception.",
-      image: "/card-images/benefit-destination.jpg"
+      image: "/businesses/property/side-front.webp"
     }
   ]
 };

@@ -14,7 +14,7 @@ const hero = {
     href: "/leasing"
   },
   trustLine: "A curated ecosystem where each brand adds relevance to the whole destination.",
-  image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1600&q=80"
+  image: "/businesses/property/brands-at-home-square.webp"
 };
 
 const Hero = () => <PageHero hero={hero} />;

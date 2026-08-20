@@ -14,7 +14,7 @@ const section = {
     label: "Awards & Recognition",
     href: "/awards-recognition"
   },
-  image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1600&q=80",
+  image: "/businesses/property/full-size-photo-2.webp",
   reverse: true
 };
 

@@ -14,7 +14,7 @@ const hero = {
     href: "/contact-us"
   },
   trustLine: "A commercial destination built to be experienced in person and understood visually.",
-  image: "https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=1400&q=80"
+  image: "/businesses/property/out-close-1.webp"
 };
 
 const Hero = () => <PageHero hero={hero} />;

@@ -3,48 +3,55 @@ import { Link } from "react-router-dom";
 import { contactDetails } from "../../content/siteContent";
 
 const localCardImages = {
-  "Prime Salugara Location": "/card-images/city.jpg",
-  "Home & Interior Ecosystem": "/card-images/interior.jpg",
-  "Business-Ready Spaces": "/card-images/office.jpg",
-  "Customer Convenience": "/card-images/storefront.jpg",
-  "Connected to Siliguri and nearby towns": "/card-images/city-connected.jpg",
-  "Accessible from the hills corridor": "/card-images/hills.jpg",
-  "Easy to locate and visit": "/card-images/road.jpg",
-  "Showroom Spaces": "/card-images/showroom.jpg",
-  "Retail Stores": "/card-images/retail.jpg",
-  "Office & Studio Spaces": "/card-images/office-studio.jpg",
-  "Office Spaces": "/card-images/workspace.jpg",
-  "Experience Centres": "/card-images/atrium.jpg",
-  "Established developer backing": "/card-images/building.jpg",
-  "Credibility in planning and delivery": "/card-images/team.jpg",
-  "Recognition and market confidence": "/card-images/award.jpg",
-  "For customers": "/card-images/customer.jpg",
-  "For brands": "/card-images/brands-team.jpg",
-  "For the city": "/card-images/city-future.jpg",
-  "To reduce fragmentation": "/card-images/fragmentation.jpg",
-  "To improve quality of footfall": "/card-images/footfall.jpg",
-  "To create stronger brand synergy": "/card-images/synergy.jpg",
-  "Project delivery confidence": "/card-images/delivery.jpg",
-  "Recognition-backed perception": "/card-images/recognition.jpg",
-  "Future growth potential": "/card-images/growth.jpg",
-  "For Furniture Brands": "/card-images/furniture-brand.jpg",
-  "For Electronics Brands": "/card-images/electronics.jpg",
-  "For Modular Kitchen Brands": "/card-images/kitchen.jpg",
-  "For Decor & Lifestyle Brands": "/card-images/decor-lifestyle.jpg",
-  Parking: "/card-images/parking.jpg",
-  Security: "/card-images/security.jpg",
-  Lifts: "/card-images/lobby.jpg",
-  "Wide passages": "/card-images/wide-passage.jpg",
-  "Food court access": "/card-images/food.jpg",
-  "Smooth visitor circulation": "/card-images/circulation.jpg",
-  "Comfortable common areas": "/card-images/common-area.jpg",
-  "Practical daily operations support": "/card-images/operations.jpg",
+  "Prime Salugara Location": "/businesses/property/out-medium-1.webp",
+  "Home & Interior Ecosystem": "/businesses/interiors/img-8944.webp",
+  "Business-Ready Spaces": "/businesses/property/side-front.webp",
+  "Customer Convenience": "/businesses/property/brands-at-home-square.webp",
+  "Connected to Siliguri and nearby towns": "/businesses/property/out-far-1.webp",
+  "Accessible from the hills corridor": "/businesses/property/out-far-2.webp",
+  "Easy to locate and visit": "/businesses/property/side-front.webp",
+  "Showroom Spaces": "/businesses/furnishing/img-8322.webp",
+  "Retail Stores": "/businesses/electronics/img-8863.webp",
+  "Office & Studio Spaces": "/businesses/property/out-close-2.webp",
+  "Office Spaces": "/businesses/property/full-size-photo-2.webp",
+  "Experience Centres": "/businesses/interiors/img-8937.webp",
+  "Established developer backing": "/businesses/property/out-close-1.webp",
+  "Credibility in planning and delivery": "/businesses/property/full-size-photo-1.webp",
+  "Recognition and market confidence": "/businesses/property/brands-at-home-square.webp",
+  "For customers": "/businesses/cafe/img-8879.webp",
+  "For brands": "/businesses/furnishing/fullsizerender.webp",
+  "For the city": "/businesses/property/side-photo.webp",
+  "To reduce fragmentation": "/businesses/interiors/img-8960.webp",
+  "To improve quality of footfall": "/businesses/cafe/img-8884.webp",
+  "To create stronger brand synergy": "/businesses/property/brands-at-home-square.webp",
+  "Project delivery confidence": "/businesses/property/full-size-photo-2.webp",
+  "Recognition-backed perception": "/businesses/property/out-medium-2.webp",
+  "Future growth potential": "/businesses/property/side-front.webp",
+  "For Furniture Brands": "/businesses/furnishing/img-8328.webp",
+  "For Electronics Brands": "/businesses/electronics/img-8864.webp",
+  "For Modular Kitchen Brands": "/businesses/interiors/img-8949.webp",
+  "For Decor & Lifestyle Brands": "/businesses/furnishing/img-8324.webp",
+  Parking: "/businesses/property/parking.webp",
+  Security: "/businesses/property/out-close-2.webp",
+  Lifts: "/businesses/property/full-size-photo-2.webp",
+  "Wide passages": "/businesses/interiors/img-8962.webp",
+  "Food court access": "/businesses/cafe/img-8334.webp",
+  "Smooth visitor circulation": "/businesses/property/side-photo.webp",
+  "Comfortable common areas": "/businesses/cafe/img-8880.webp",
+  "Practical daily operations support": "/businesses/property/parking-2.webp",
 };
 
-const fallbackCardImages = ["city", "interior", "office", "storefront", "showroom", "retail", "workspace", "atrium", "team", "building", "growth"];
+const fallbackCardImages = [
+  "/businesses/property/out-medium-3.webp",
+  "/businesses/interiors/img-8943.webp",
+  "/businesses/furnishing/img-8326.webp",
+  "/businesses/electronics/img-8865.webp",
+  "/businesses/cafe/img-8335.webp",
+  "/businesses/property/full-size-photo-1.webp"
+];
 
 function getCardImage(title, index = 0) {
-  return localCardImages[title] ?? `/card-images/${fallbackCardImages[index % fallbackCardImages.length]}.jpg`;
+  return localCardImages[title] ?? fallbackCardImages[index % fallbackCardImages.length];
 }
 
 function Ornament({ light = false }) {
@@ -171,9 +178,10 @@ function Action({ action, className = "", subtle = false }) {
 
 export function PageHero({ hero }) {
   const secondaryIsInternal = hero.secondaryCta.href.startsWith("/");
+  const heightClass = "min-h-[85svh]";
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#1f1512]" data-hero id="top">
+    <section className={`relative ${heightClass} overflow-hidden bg-[#1f1512]`} data-hero id="top">
       {hero.video ? (
         <video
           autoPlay
@@ -195,28 +203,13 @@ export function PageHero({ hero }) {
       )}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_62%,rgba(0,0,0,0.05),rgba(0,0,0,0.5)_82%),linear-gradient(to_bottom,rgba(0,0,0,0.14),rgba(0,0,0,0.26))]" />
 
-      <div className="relative z-10 flex min-h-screen flex-col items-center justify-end px-4 pb-10 pt-36 text-center text-[#f8f6f4] md:px-6 md:pb-14 lg:pb-16">
-        <div className="mb-7 mt-auto flex h-10 w-10 items-center justify-center text-white/95" data-hero-fade>
-          <span className="relative block h-7 w-7 before:absolute before:left-1/2 before:top-0 before:h-3 before:w-px before:-translate-x-1/2 before:bg-white after:absolute after:bottom-0 after:left-1/2 after:h-3 after:w-px after:-translate-x-1/2 after:bg-white">
-            <span className="absolute left-0 top-1/2 h-px w-3 -translate-y-1/2 bg-white" />
-            <span className="absolute right-0 top-1/2 h-px w-3 -translate-y-1/2 bg-white" />
-            <span className="absolute left-1/2 top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/90" />
-          </span>
-        </div>
-
-        <span className="inline-flex items-center text-[0.72rem] uppercase tracking-[0.18em] text-[rgba(248,246,244,0.82)]" data-hero-fade>
-          {hero.eyebrow}
-        </span>
-        <h1 className="mt-7 w-full max-w-[12ch] font-['Kaftan_Serif'] text-[clamp(3rem,6.4vw,6.4rem)] leading-[0.92] tracking-[-0.05em] text-white sm:max-w-[16ch]">
+      <div className={`relative z-10 flex ${heightClass} flex-col items-center justify-end px-4 pb-10 pt-36 text-center text-[#f8f6f4] md:px-6 md:pb-14 lg:pb-16`}>
+        <h1 className="mt-0 w-full max-w-[12ch] font-['Kaftan_Serif'] text-[clamp(3rem,6.4vw,6.4rem)] leading-[0.92] tracking-[-0.05em] text-white sm:max-w-[16ch]">
           <HeroTitleWords text={hero.title} />
         </h1>
         <p className="mt-6 w-full max-w-[18rem] text-[1.02rem] leading-[1.82] text-[rgba(248,246,244,0.82)] lg:max-w-[48rem] lg:text-[1.08rem]" data-hero-fade>
           {hero.subtitle}
         </p>
-        <p className="mt-4 w-full max-w-[18rem] text-[0.98rem] leading-[1.78] text-[rgba(248,246,244,0.68)] lg:max-w-[44rem]" data-hero-fade>
-          {hero.body}
-        </p>
-
         <div className="mt-6 flex flex-col items-center" data-hero-fade>
           <span className="mb-9 block h-[4.2rem] w-px bg-[rgba(248,246,244,0.55)]" />
           <div className="flex flex-col gap-4 sm:flex-row">
@@ -687,6 +680,11 @@ export function BrandGridSection({ section }) {
                 src={item.image}
               />
               <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(15,12,10,0.92)_4%,rgba(15,12,10,0.52)_48%,rgba(15,12,10,0.16)_100%)]" />
+              {item.logo ? (
+                <div className="absolute left-6 top-6 z-20 flex h-[5.5rem] w-[9.5rem] items-center justify-center bg-white/95 p-3 shadow-[0_12px_35px_rgba(0,0,0,0.16)] backdrop-blur-sm">
+                  <img alt={`${item.title} logo`} className="max-h-full max-w-full object-contain" loading="lazy" src={item.logo} />
+                </div>
+              ) : null}
               <div className="relative z-10 flex min-h-[30rem] flex-col justify-end p-7 sm:min-h-[34rem] sm:p-8">
                 <span className="text-[0.75rem] uppercase tracking-[0.18em] text-white/72">
                   {item.meta}
@@ -747,7 +745,7 @@ export function FeaturedBlogSection({ section }) {
               <img
                 alt={item.title}
                 className="h-[22rem] w-full object-cover lg:h-full"
-                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=80"
+                src="/businesses/interiors/img-8958.webp"
               />
             </div>
             <div className="p-7 sm:p-10">

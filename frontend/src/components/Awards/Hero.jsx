@@ -14,7 +14,7 @@ const hero = {
     href: "/leasing"
   },
   trustLine: "Recognition adds confidence to the destination behind the opportunity.",
-  image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80"
+  image: "/businesses/property/out-close-2.webp"
 };
 
 const Hero = () => <PageHero hero={hero} />;

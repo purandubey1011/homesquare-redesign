@@ -14,7 +14,7 @@ const hero = {
     href: "/contact-us"
   },
   trustLine: "Commercial spaces designed for performance, perception and long-term business value.",
-  image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1600&q=80"
+  image: "/businesses/interiors/img-8944.webp"
 };
 
 const Hero = () => <PageHero hero={hero} />;

@@ -14,7 +14,7 @@ const section = {
     label: "Why Home Square",
     href: "/why-homesquare"
   },
-  image: "https://images.unsplash.com/photo-1497366412874-3415097a27e7?auto=format&fit=crop&w=1600&q=80"
+  image: "/businesses/interiors/img-8960.webp"
 };
 
 const MoreThan = () => <SplitSection section={section} />;

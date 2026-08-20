@@ -14,7 +14,7 @@ const hero = {
     href: "/leasing"
   },
   trustLine: "Built for brands, visitors, staff and real-world daily use.",
-  image: "https://images.unsplash.com/photo-1497366412874-3415097a27e7?auto=format&fit=crop&w=1600&q=80"
+  image: "/businesses/property/parking-2.webp"
 };
 
 const Hero = () => <PageHero hero={hero} />;

@@ -14,7 +14,7 @@ const section = {
     label: "See Project Updates",
     href: "/project-updates"
   },
-  image: "/photos/home/homesquarebrands.jpeg"
+  image: "/businesses/property/brands-at-home-square.webp"
 };
 
 const RecognitionSupports = () => <SplitSection section={section} />;

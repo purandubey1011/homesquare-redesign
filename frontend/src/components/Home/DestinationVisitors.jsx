@@ -14,7 +14,7 @@ const section = {
     label: "Discover the Experience",
     href: "/one-stop-interior-destination"
   },
-  image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1600&q=80"
+  image: "/businesses/cafe/img-8333.webp"
 };
 
 const DestinationVisitors = () => <SplitSection section={section} />;

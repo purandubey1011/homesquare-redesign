@@ -6,15 +6,15 @@ const section = {
   items: [
     {
       title: "Architecture & Elevations",
-      image: "https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=1400&q=80"
+      image: "/businesses/property/out-close-1.webp"
     },
     {
       title: "Interiors & Common Areas",
-      image: "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80"
+      image: "/businesses/property/side-front.webp"
     },
     {
       title: "Commercial Spaces & Amenities",
-      image: "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1400&q=80"
+      image: "/businesses/property/parking.webp"
     }
   ],
   cta: {

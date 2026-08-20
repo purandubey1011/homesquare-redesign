@@ -14,7 +14,7 @@ const hero = {
     href: "/contact-us"
   },
   trustLine: "A commercial destination shaped around trust, utility and long-term relevance.",
-  image: "/photos/home/homesquarebrands.jpeg"
+  image: "/businesses/property/brands-at-home-square.webp"
 };
 
 const Hero = () => <PageHero hero={hero} />;

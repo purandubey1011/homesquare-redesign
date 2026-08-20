@@ -14,7 +14,7 @@ const hero = {
     href: "/contact-us"
   },
   trustLine: "Built around long-term business value, not generic retail clutter.",
-  image: "https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1800&q=80"
+  image: "/businesses/property/out-medium-1.webp"
 };
 
 const Hero = () => <PageHero hero={hero} />;

@@ -3,6 +3,7 @@ import { usePageMeta } from "../../hooks/usePageMeta";
 import Hero from "./Hero";
 import GrowingEcosystem from "./GrowingEcosystem";
 import FeaturedBrands from "./FeaturedBrands";
+import AllBusinessLogos from "./AllBusinessLogos";
 import BrandMix from "./BrandMix";
 import CustomersBusinesses from "./CustomersBusinesses";
 import DiscoverBrands from "./DiscoverBrands";
@@ -20,6 +21,7 @@ const Brands = () => {
       <Hero />
       <GrowingEcosystem />
       <FeaturedBrands />
+      <AllBusinessLogos />
       <BrandMix />
       <CustomersBusinesses />
       <DiscoverBrands />

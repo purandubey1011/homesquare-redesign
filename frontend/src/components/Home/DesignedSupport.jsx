@@ -15,7 +15,7 @@ const section = {
     label: "See the Business Case",
     href: "/why-homesquare"
   },
-  image: "/photos/home/homesquarebrands.jpeg",
+  image: "/businesses/property/brands-at-home-square.webp",
   reverse: true
 };
 

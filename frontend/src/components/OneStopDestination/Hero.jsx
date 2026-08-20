@@ -14,7 +14,7 @@ const hero = {
     href: "/leasing"
   },
   trustLine: "A destination format that works better for both customers and brands.",
-  image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1500&q=80"
+  image: "/businesses/furnishing/img-8322.webp"
 };
 
 const Hero = () => <PageHero hero={hero} />;

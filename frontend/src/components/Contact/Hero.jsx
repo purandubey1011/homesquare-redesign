@@ -14,7 +14,7 @@ const hero = {
     href: "tel:80011-71000"
   },
   trustLine: "Clear, premium and action-focused communication for serious business enquiries.",
-  image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=80"
+  image: "/businesses/property/out-far-1.webp"
 };
 
 const Hero = () => <PageHero hero={hero} />;

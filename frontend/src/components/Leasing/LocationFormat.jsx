@@ -15,7 +15,7 @@ const section = {
     label: "Why It Works",
     href: "/why-homesquare"
   },
-  image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1600&q=80"
+  image: "/businesses/property/side-photo.webp"
 };
 
 const LocationFormat = () => <SplitSection section={section} />;

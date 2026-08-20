@@ -7,27 +7,27 @@ const section = {
     {
       title: "Home Improvement",
       body: "Paints, marbles, surfaces, furnishings, interiors and design-led products.",
-      image: "/card-images/brandmix-home.jpg"
+      image: "/businesses/furnishing/img-8328.webp"
     },
     {
       title: "Electronics & Lifestyle",
       body: "Appliances, gadgets and modern home electronics for everyday living.",
-      image: "/card-images/brandmix-electronics.jpg"
+      image: "/businesses/electronics/img-8864.webp"
     },
     {
       title: "Interior & Decor Solutions",
       body: "Design services, furnishings, finishes and styling support for homes and offices.",
-      image: "/card-images/brandmix-interior.jpg"
+      image: "/businesses/interiors/img-8949.webp"
     },
     {
       title: "Food & Experience",
       body: "Dining options that make the destination more engaging and encourage visitors to spend more time.",
-      image: "/card-images/brandmix-food.jpg"
+      image: "/businesses/cafe/img-8334.webp"
     },
     {
       title: "Beauty & Lifestyle Services",
       body: "Supporting services that make the destination more rounded, relevant and convenient.",
-      image: "/card-images/brandmix-beauty.jpg"
+      image: "/businesses/salon/img-8873.webp"
     }
   ]
 };

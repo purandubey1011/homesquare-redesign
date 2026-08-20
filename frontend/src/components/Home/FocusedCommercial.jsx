@@ -14,7 +14,7 @@ const section = {
     label: "Why Home Square",
     href: "/why-homesquare"
   },
-  image: "/photos/home/whychoseus.jpeg"
+  image: "/businesses/interiors/img-8937.webp"
 };
 
 const FocusedCommercial = () => <SplitSection section={section} />;
